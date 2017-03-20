@@ -1,0 +1,27 @@
+  
+  <p style="font-size: xx-large">雞的日曆就是長這樣別懷疑</p>
+  <table class='calTable' style="width:100%">
+      <tbody>
+         <tr style="width:100%">
+              <td>穿新衣</td>
+              <td>肚子餓</td>
+              <td>去爬山</td>
+              <td>看電視</td>
+              <td>去跳舞</td>
+              <td>去斗六</td>
+              <td>擦油漆</td>
+              <td>吹喇叭</td>
+              <td>去喝酒</td>
+              <td>死翹翹</td>
+          </tr>
+          <tr *ngFor="let item of [0,1,2,3]" style=width:100%>
+              <td style="border:1px blue solid;height:40px;min-width:40px" *ngFor="let col of [0,1,2,3,4,5,6,7,8,9]">
+                  <div style="color:green">{{setDate()}}</div>
+                      <br/>
+                  <app-calendar-chip >
+                      {{randomEvent()}}
+                  </app-calendar-chip>
+              </td>
+          </tr>
+      </tbody>
+  </table>

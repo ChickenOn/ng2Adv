@@ -1,5 +1,5 @@
+import { LoginGodGuard } from './../login-god.guard';
 import { LayoutComponent } from './layout.component';
-import { ChartsModule } from './../charts/charts.module';
 import { DashboardComponent } from './../dashboard/dashboard.component';
 import { CardsComponent } from './../cards/cards.component';
 import { NgModule } from '@angular/core';
@@ -10,12 +10,12 @@ import { LayoutRoutingModule } from './layout-routing.module';
 @NgModule({
   imports: [
     CommonModule,
-    LayoutRoutingModule,
-    ChartsModule
+    LayoutRoutingModule
   ],
   declarations: [
     CardsComponent,
     DashboardComponent,
-    LayoutComponent]
+    LayoutComponent],
+  providers: [LoginGodGuard]
 })
 export class LayoutModule { }

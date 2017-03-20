@@ -5,12 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   
   {
-    path: 'charts',
-    redirectTo: '/charts/flot',
+    path: '',
+    redirectTo: 'flot',
     pathMatch: 'full'
   },
   {
-    path: 'charts/flot',
+    path: 'flot',
     component: FlotComponent
   }
     

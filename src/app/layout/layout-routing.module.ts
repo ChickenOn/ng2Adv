@@ -1,6 +1,9 @@
-import { FlotComponent } from './../charts/flot/flot.component';
+import { BestCalendarEverComponent } from './../best-calendar-ever/best-calendar-ever.component';
+import { AdvcComponent } from './../advc/advc.component';
+import { Form2Component } from './../form2/form2.component';
+import { FormComponent } from './../form/form.component';
+import { LoginGodGuard } from './../login-god.guard';
 import { LayoutComponent } from './layout.component';
-import { ChartsRoutingModule } from './../charts/charts-routing.module';
 import { DashboardComponent } from './../dashboard/dashboard.component';
 import { CardsComponent } from './../cards/cards.component';
 import { NgModule } from '@angular/core';
@@ -11,10 +14,24 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
-    { path: '', redirectTo:'/dash', pathMatch:'full' },
+      { path: 'adv', component: AdvcComponent },
+      {path:'cal',component:BestCalendarEverComponent},
+      { path: '', redirectTo: '/cal', pathMatch: 'full' },
+      {
+        path: 'form',
+        component:FormComponent
+      },
+      {
+        path: 'form2',
+        component:Form2Component
+      },
       {
         path: 'cards',
         component: CardsComponent
+      },
+      {
+        path: 'cards/:num',
+        component:CardsComponent
       },
       {
         path: 'dash',
@@ -22,12 +39,8 @@ const routes: Routes = [
       },
       {
         path: 'charts',
-        redirectTo: '/charts/flot',
-        pathMatch:'full'
-      },
-      {
-        path: 'charts/flot',
-        component: FlotComponent
+        loadChildren: '../charts/charts.module#ChartsModule',
+        canActivate:[LoginGodGuard]
       }
     ]
   }
